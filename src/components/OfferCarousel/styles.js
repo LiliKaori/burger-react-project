@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  background-color: #e5e5e5;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,16 +27,25 @@ export const Container = styled.div`
   }
 `
 
-export const CategoryImg = styled.img``
+export const OfferImg = styled.img``
 
 export const ContainerItems = styled.div`
   display: flex;
   flex-direction: column;
+
+  p {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 120%;
+    color: #424242;
+  }
 `
 
 export const Image = styled.img`
   width: 200px;
   border-radius: 16px;
+  margin-bottom: 16px;
 `
 
 export const Button = styled.button`
