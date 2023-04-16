@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Background from '../../assets/background.svg'
 
 export const Container = styled.div`
-  height: 100vh;
+  height: calc(100vh -72px);
   width: 100vw;
   background: url('${Background}');
   display: flex;

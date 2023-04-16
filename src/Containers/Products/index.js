@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import ProductsLogo from '../../assets/product-logo.svg'
 import { CardProduct } from '../../components'
@@ -12,7 +13,9 @@ import {
   ProductsContainer
 } from './styles'
 
-export function Products() {
+export function Products(props) {
+  const location = useLocation()
+  console.log(location)
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([])
