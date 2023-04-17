@@ -13,13 +13,19 @@ import {
   ProductsContainer
 } from './styles'
 
-export function Products(props) {
-  const location = useLocation()
-  console.log(location)
+export function Products() {
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([])
-  const [activeCategory, setActiveCategories] = useState([0])
+  const [activeCategory, setActiveCategories] = useState(0)
+
+  const { state } = useLocation()
+
+  useEffect(() => {
+    if (state.categoryId) {
+      setActiveCategories(state.categoryId)
+    }
+  }, [state.categoryId])
 
   useEffect(() => {
     async function loadCategories() {

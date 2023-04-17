@@ -6,14 +6,20 @@ import { Header } from '../components'
 
 function PrivateRoute({ children }) {
   const user = localStorage.getItem('burger:userData')
+  const isAdmin = children.props.isAdmin
 
   if (!user) {
     return <Navigate to="/login" />
   }
 
+  if (children.props.isAdmin && !JSON.parse(user).admin) {
+    return <Navigate to="/" />
+  }
+
   return (
     <>
-      <Header />
+      {console.log(isAdmin)}
+      {!children.props.isAdmin && <Header />}
       {children}
     </>
   )

@@ -15,7 +15,7 @@ import {
 } from './styles'
 
 export function Header() {
-  const { logout } = useUser()
+  const { logout, userData } = useUser()
   const navigate = useNavigate()
   const { pathname } = useLocation()
 
@@ -31,7 +31,7 @@ export function Header() {
           Home
         </PageLink>
         <PageLink
-          onClick={() => navigate('/produtos')}
+          onClick={() => navigate('/produtos', { state: { categoryId: 0 } })}
           isActive={pathname.includes('produtos')}
         >
           Ver Produtos
@@ -47,7 +47,7 @@ export function Header() {
           <img src={Cart} alt="carrinho" />
         </PageLink>
         <ContainerText>
-          <p>Olá,Rodolfo</p>
+          <p>Olá, {userData.name}!</p>
           <PageLinkExit onClick={logoutUser}>Sair</PageLinkExit>
         </ContainerText>
       </ContainerRight>
