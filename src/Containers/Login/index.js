@@ -8,6 +8,7 @@ import * as Yup from 'yup'
 import LoginImg from '../../assets/login-image.svg'
 import Logo from '../../assets/logo.svg'
 import { Button } from '../../components'
+import paths from '../../constants/paths'
 import { useUser } from '../../hooks/UserContext'
 import api from '../../services/api'
 import {
@@ -96,7 +97,7 @@ export function Login() {
 
         <SignInLink>
           Não possui conta?{' '}
-          <Link to="/cadastro" style={{ color: 'white' }}>
+          <Link to={paths.Register} style={{ color: 'white' }}>
             Sing Up
           </Link>
         </SignInLink>

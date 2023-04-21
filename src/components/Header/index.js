@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 import Cart from '../../assets/cart.svg'
 import Person from '../../assets/person.svg'
+import paths from '../../constants/paths'
 import { useUser } from '../../hooks/UserContext'
 import {
   Container,
@@ -27,11 +28,14 @@ export function Header() {
   return (
     <Container>
       <ContainerLeft>
-        <PageLink onClick={() => navigate('/')} isActive={pathname === '/'}>
+        <PageLink
+          onClick={() => navigate(paths.Home)}
+          isActive={pathname === '/'}
+        >
           Home
         </PageLink>
         <PageLink
-          onClick={() => navigate('/produtos', { state: { categoryId: 0 } })}
+          onClick={() => navigate(paths.Products, { state: { categoryId: 0 } })}
           isActive={pathname.includes('produtos')}
         >
           Ver Produtos
@@ -43,7 +47,7 @@ export function Header() {
           <img src={Person} alt="logo-pessoa" />
         </PageLink>
         <Line></Line>
-        <PageLink onClick={() => navigate('/carrinho')}>
+        <PageLink onClick={() => navigate(paths.Cart)}>
           <img src={Cart} alt="carrinho" />
         </PageLink>
         <ContainerText>
