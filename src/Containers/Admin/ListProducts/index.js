@@ -1,5 +1,4 @@
-import CancelIcon from '@mui/icons-material/Cancel'
-import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import LocalOfferIcon from '@mui/icons-material/LocalOffer'
 import Paper from '@mui/material/Paper'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
@@ -8,13 +7,16 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
+import paths from '../../../constants/paths'
 import api from '../../../services/api'
 import formatCurrency from '../../../utils/formatCurrency'
 import { Container, Img, EditIconStyles } from './styles'
 
 function ListProducts() {
   const [products, setProducts] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function loadProducts() {
@@ -27,9 +29,13 @@ function ListProducts() {
 
   function isOffer(offerStatus) {
     if (offerStatus) {
-      return <CheckCircleIcon style={{ color: '#32C671' }} />
+      return <LocalOfferIcon style={{ color: '#32C671' }} />
     }
-    return <CancelIcon style={{ color: '#F44336' }} />
+    return <LocalOfferIcon style={{ color: '#F44336' }} />
+  }
+
+  function editProduct(product) {
+    navigate(paths.EditProduct, { state: { product } })
   }
 
   return (
@@ -61,7 +67,7 @@ function ListProducts() {
                     <Img src={product.url} alt="imagem-produto" />
                   </TableCell>
                   <TableCell>
-                    <EditIconStyles />
+                    <EditIconStyles onClick={() => editProduct(product)} />
                   </TableCell>
                 </TableRow>
               ))}

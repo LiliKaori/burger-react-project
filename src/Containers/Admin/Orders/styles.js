@@ -21,7 +21,7 @@ export const Menu = styled.div`
   display: flex;
   gap: 50px;
   justify-content: center;
-  margin: 20px 0;
+  padding: 20px 0;
 `
 
 export const LinkMenu = styled.a`

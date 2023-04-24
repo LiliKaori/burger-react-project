@@ -19,7 +19,7 @@ export function SiteMenuAdmin({ path }) {
         </ItemContainer>
       ))}
       <hr></hr>
-      <ItemContainer style={{ position: 'absolute', bottom: '30px' }}>
+      <ItemContainer style={{ position: 'fixed', bottom: '30px' }}>
         <LogoutIcon style={{ color: '#ffffff' }} />
         <ListLink to={paths.Login} onClick={logout}>
           Sair
